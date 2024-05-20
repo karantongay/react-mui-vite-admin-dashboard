@@ -1,0 +1,142 @@
+.data-entry {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+
+  .form {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin-bottom: 5px;
+      }
+
+      input,
+      select {
+        padding: 8px;
+        font-size: 1rem;
+      }
+
+      input[type='text']:disabled {
+        background-color: #f0f0f0;
+      }
+
+      .date-picker, .time-picker {
+        width: 100%;
+        padding: 8px;
+        font-size: 1rem;
+      }
+    }
+
+    .form-group:last-child {
+      grid-column: 1 / -1;
+    }
+
+    .error {
+      grid-column: 1 / -1;
+      color: red;
+    }
+
+    button {
+      grid-column: 1 / -1;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .data-table {
+    margin-top: 20px;
+    overflow-x: auto;
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f4f4f4;
+      }
+    }
+
+    .pagination {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      button {
+        margin: 0 5px;
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        &:disabled {
+          background-color: #b0c4de;
+        }
+      }
+
+      span {
+        margin: 0 5px;
+      }
+    }
+  }
+
+  .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: #007bff;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .form {
+      grid-template-columns: 1fr;
+
+      .form-group:last-child {
+        grid-column: 1 / 1;
+      }
+
+      button {
+        grid-column: 1 / 1;
+      }
+    }
+
+    .data-table {
+      table {
+        th,
+        td {
+          padding: 5px;
+        }
+      }
+    }
+  }
+}
